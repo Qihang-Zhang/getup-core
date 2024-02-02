@@ -25,6 +25,7 @@ bash deploy.sh
 ```shell
 alias getup="cd $project_position; bash deploy.sh"
 ```
+Congratulations! now you can open your terminal and type `getup` to document your get-up time!
 
 ## Frequent Command for MkDocs
 
