@@ -173,28 +173,6 @@ yearly_pie_html = generate_pie_chart_html(times_this_year, "Yearly Wake Up Time 
 html_content = f"""
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Wake Up Time Statistics</title>
-    <style>
-        .container {{
-            display: flex;
-            flex-direction: column; /* 修改为垂直布局 */
-            justify-content: space-around;
-            align-items: center;
-        }}
-        .item {{
-            flex-basis: 48%;
-        }}
-        img {{
-            max-width: 100%;
-            height: auto;
-        }}
-        .chart-container {{
-            text-align: center;
-        }}
-    </style>
-</head>
 <body>
     <center>
     <p>
@@ -217,7 +195,7 @@ html_content = f"""
 <body>
     <center><h2>Wake Up Time Statistics for Last 7 days</h2></center>
     <div class="container">
-        <div class="item chart-container">
+        <div class="img">
             {plot_getup_last_7_days}
         </div>
     </div>
@@ -226,10 +204,10 @@ html_content = f"""
 <body>
     <center><h2>Wake Up Time Statistics for {datetime.now().strftime("%B %Y")}</h2></center>
     <div class="container">
-        <div class="item">
+        <div class="img">
             {monthly_plot_html}
         </div>
-        <div class="item">
+        <div class="img">
             {monthly_pie_html}
         </div>
     </div>
@@ -237,10 +215,10 @@ html_content = f"""
 <body>
     <center><h2>Wake Up Time Statistics for {datetime.now().strftime("%Y")}</h2></center>
     <div class="container">
-        <div class="item">
+        <div class="img">
             {yearly_plot_html}
         </div>
-        <div class="item">
+        <div class="img">
             {yearly_pie_html}
         </div>
     </div>
