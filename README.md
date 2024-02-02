@@ -7,6 +7,10 @@ This is a project to document the time you get up everyday and visualize it in a
 ```shell
 pip install mkdocs
 pip install mkdocs-material
+# (optional)if you are using mac, you can install the package by brew:
+brew install sl
+# (optional)if you are using linux, you can install the package by apt:
+sudo apt-get install sl
 ```
 5. modify the parameter in deploy.sh `cutoff` to what you want, for `generate_md.py`it should be the upper bound of the time you get-up.
 ```shell
