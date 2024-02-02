@@ -145,3 +145,5 @@ html_content = f"""
 
 with open('docs/index.md', 'w') as file:
     file.write(html_content)
+    
+print("plot has been generated.")

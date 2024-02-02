@@ -31,4 +31,4 @@ if not already_recorded:
         writer = csv.writer(file)
         writer.writerow([current_date, current_time])
 
-print("脚本运行完成。")
+print("data has been recorded.")
