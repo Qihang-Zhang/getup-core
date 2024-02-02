@@ -184,29 +184,6 @@ html_content = f"""
         }}
     </style>
 </head>
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Beautiful Number Display</title>
-    <style>
-        body {{
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: #f0f0f0;
-        }}
-        .number-container {{
-            font-size: 4em;
-            font-weight: bold;
-            color: #3178C6; /* A nice shade of blue */
-            background-color: #E6F1FF; /* Light blue background */
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }}
-    </style>
-</head>
 <body>
     <div class="number-container">
         {recent_runs_before_cutoff}
