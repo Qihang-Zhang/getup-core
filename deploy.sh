@@ -5,9 +5,9 @@ mkdocs gh-deploy --force
 git add .
 git commit -m "$(date +%Y-%m-%d) update"
 git push
-sl -h
 clear
+sl -h
 echo "===================================="
-echo "Congratulations! Have a nice day!"
+figlet Congratulations! Have a nice day!
 echo "===================================="
 
