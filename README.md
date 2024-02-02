@@ -13,6 +13,10 @@ pip install mkdocs-material
 bash deploy.sh
 ```
 5. set the github page to the `gh-pages` branch
+6. modify the parameter in deploy.sh `cutoff` to what you want, it should be the upper bound of the time you get-up.
+```shell
+python generate.py --cutoff $a float number
+```
 
 
 ## Frequent Command for MkDocs
