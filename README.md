@@ -1,8 +1,8 @@
 ## To make the project for your own:
-'''shell
+```shell
 pip install mkdocs
 pip install mkdocs-material
-'''
+```
 
 1. fork the project to your own github account
 2. **delete** the `docs/data` folder
@@ -11,11 +11,11 @@ pip install mkdocs-material
 ```shell
 python generate_md.py --cutoff $a float number
 ```
-5. for `generate_csv.py` it should be the lower bound of the time you get-up.
+1. for `generate_csv.py` it should be the lower bound of the time you get-up.
 ```shell
 python generate_csv.py --cutoff $a float number
 ```
-6. run the following command to generate html and push to github
+1. run the following command to generate html and push to github
 
 ```shell
 bash deploy.sh
