@@ -33,22 +33,9 @@ times_this_month = [time for time in times if time.month == current_month and ti
 times_this_year = [time for time in times if time.year == current_year]
 times_last_7_days = [time for time in times if time > datetime.now() - timedelta(days=7)]
 
-def count_continuous_early_rises_from_yesterday(times, cutoff_hour=8.5):
-    """
-    从昨天开始向前数连续早起的天数。
-    
-    参数:
-    - times: datetime对象列表，可能是无序的。
-    - cutoff_hour: 特定的小时（24小时制）。
-    
-    返回:
-    - 自昨天起连续在特定小时之前开始工作的天数。
-    """
-    
+def count_continuous_early_rises_from_yesterday(times, last_date = datetime.now().date() + timedelta(days=1), cutoff_hour=args.cutoff):  
     # 初始化计数器和当前检查的日期
     count = 0
-    current_date = datetime.now().date()
-    last_date = datetime.now().date() + timedelta(days=1)
     for i in range(len(times)):
         idx = len(times) - i - 1
         current_time = times[idx]
@@ -65,7 +52,8 @@ def count_continuous_early_rises_from_yesterday(times, cutoff_hour=8.5):
 # 由于环境限制，以下代码仅展示函数定义，无法直接测试
 # 请在本地环境中根据实际情况定义times列表并调用此函数进行测试
 
-recent_runs_before_cutoff = count_continuous_early_rises_from_yesterday(times)
+recent_runs_before_cutoff = max(count_continuous_early_rises_from_yesterday(times),
+                                count_continuous_early_rises_from_yesterday(times, last_date=datetime.now().date()))
 
 def real_time_to_hours_minutes(real_time):
     """
