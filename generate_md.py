@@ -47,20 +47,16 @@ def count_continuous_early_rises_from_yesterday(times, cutoff_hour=8.5):
     
     # 初始化计数器和当前检查的日期
     count = 0
-    yesterday = datetime.now().date() - timedelta(days=1)
-    
-    # 从昨天开始向前数连续早起的天数
+    current_date = datetime.now().date()
+    last_date = datetime.now().date() + timedelta(days=1)
     for i in range(len(sorted_times)):
-        # 计算应该检查的日期
-        check_date = yesterday - timedelta(days=i)
-        # 在给定的日期中找到最早的起床时间
-        earliest_time = min((t for t in sorted_times if t.date() == check_date), default=None)
-        
-        # 如果那天有起床记录，并且起床时间早于cutoff
-        if earliest_time and earliest_time.hour + earliest_time.minute / 60 < cutoff_hour:
-            count += 1
+        idx = len(sorted_times) - i - 1
+        current_time = sorted_times[idx]
+        if current_time.date() == last_date - timedelta(days=1):
+            if current_time.hour + current_time.minute / 60 < cutoff_hour:
+                count += 1
+                last_date = current_time.date()
         else:
-            # 一旦发现不连续的或不满足条件的日子，停止计数
             break
     
     return count
@@ -70,6 +66,7 @@ def count_continuous_early_rises_from_yesterday(times, cutoff_hour=8.5):
 # 请在本地环境中根据实际情况定义times列表并调用此函数进行测试
 
 recent_runs_before_cutoff = count_continuous_early_rises_from_yesterday(times)
+print(recent_runs_before_cutoff)
 
 def real_time_to_hours_minutes(real_time):
     """
@@ -217,7 +214,7 @@ html_content = f"""
         <span style="font-size: 28px; color: black;">Qihang has been an early bird for</span>
         <span style="font-size: 40px; color: purple;"> {recent_runs_before_cutoff}</span>
         <span style="font-size: 28px; color: black;"> consecutive days</span>
-        <span style="font-size: 40px; color: blue;"> (before {real_time_to_hours_minutes(args.cutoff)})</span>
+        <span style="font-size: 28px; color: blue;"> (before {real_time_to_hours_minutes(args.cutoff)})</span>
     </p>
 </body>
 <body>
