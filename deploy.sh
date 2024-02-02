@@ -1,4 +1,4 @@
-python generate_csv.py
+python generate_csv.py --cutoff 5
 python generate_md.py --cutoff 7.75
 mkdocs gh-deploy --force
 
