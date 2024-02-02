@@ -1,5 +1,5 @@
 import csv
-from datetime import datetime
+from datetime import datetime, timedelta
 from collections import Counter
 import matplotlib.pyplot as plt
 import plotly.graph_objects as go
@@ -25,6 +25,28 @@ current_month = datetime.now().month
 current_year = datetime.now().year
 times_this_month = [time for time in times if time.month == current_month and time.year == current_year]
 times_this_year = [time for time in times if time.year == current_year]
+
+def count_runs_before_time_in_last_7_days(times, cutoff_hour=10):
+    """
+    计算最近七天内，在特定小时之前开始工作的次数。
+    
+    参数:
+    - times: datetime对象列表。
+    - cutoff_hour: 特定的小时（24小时制）。
+    
+    返回:
+    - 在特定小时之前开始工作的次数。
+    """
+    cutoff_time = timedelta(hours=cutoff_hour)
+    count = 0
+    for time in times:
+        if time.date() >= datetime.now().date() - timedelta(days=7) and time.time() < (datetime.min + cutoff_time).time():
+            count += 1
+    return count
+
+# 现在使用这个函数
+recent_runs_before_cutoff = count_runs_before_time_in_last_7_days(times)
+print(recent_runs_before_cutoff)
 
 def generate_histogram_plotly_html(times, title):
     """

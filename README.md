@@ -1,4 +1,9 @@
 ## To make the project for your own:
+'''shell
+pip install mkdocs
+pip install mkdocs-material
+'''
+
 1. fork the project to your own github account
 2. **delete** the `docs/data` folder
 3. modify the `mkdocs.yml` file to change the `site_name` and `repo_url` to your own
