@@ -7,7 +7,7 @@
 ```shell
 bash deploy.sh
 ```
-4.set the github page to the `gh-pages` branch
+5.set the github page to the `gh-pages` branch
 
 ## Frequent Command for MkDocs
 
