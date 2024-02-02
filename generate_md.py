@@ -44,9 +44,53 @@ def count_runs_before_time_in_last_7_days(times, cutoff_hour=10):
             count += 1
     return count
 
-# 现在使用这个函数
+def generate_beautiful_number_html(number):
+    """
+    生成一个美观显示数字的HTML代码。
+    
+    参数:
+    - number: 要显示的数字。
+    
+    返回:
+    - 包含数字显示HTML代码的字符串。
+    """
+    html_code = f"""
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Beautiful Number Display</title>
+        <style>
+            body {{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+                background-color: #f0f0f0;
+            }}
+            .number-container {{
+                font-size: 4em;
+                font-weight: bold;
+                color: #3178C6; /* A nice shade of blue */
+                background-color: #E6F1FF; /* Light blue background */
+                padding: 20px;
+                border-radius: 10px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            }}
+        </style>
+    </head>
+    <body>
+        <div class="number-container">
+            {number}
+        </div>
+    </body>
+    </html>
+    """
+    return html_code
+
 recent_runs_before_cutoff = count_runs_before_time_in_last_7_days(times)
-print(recent_runs_before_cutoff)
+html_number = generate_beautiful_number_html(recent_runs_before_cutoff)
 
 def generate_histogram_plotly_html(times, title):
     """
@@ -140,6 +184,34 @@ html_content = f"""
         }}
     </style>
 </head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beautiful Number Display</title>
+    <style>
+        body {{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }}
+        .number-container {{
+            font-size: 4em;
+            font-weight: bold;
+            color: #3178C6; /* A nice shade of blue */
+            background-color: #E6F1FF; /* Light blue background */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }}
+    </style>
+</head>
+<body>
+    <div class="number-container">
+        {recent_runs_before_cutoff}
+    </div>
+</body>
 <body>
     <center><h2>Wake Up Time Statistics for {datetime.now().strftime("%B %Y")}</h2></center>
     <div class="container">
