@@ -8,6 +8,7 @@ git push
 clear
 sl -h
 echo "===================================="
-figlet Congratulations! Have a nice day!
+figlet Morning!
+figlet Have a nice day!
 echo "===================================="
 
