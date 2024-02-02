@@ -1,11 +1,8 @@
 ## To make the project for your own:
-0. fork the project to your own github account
-
-1. **delete** the `docs/data` folder
- 
-2.modify the `mkdocs.yml` file to change the `site_name` and `repo_url` to your own
-
-3. run the following command to generate html and push to github
+1. fork the project to your own github account
+2. **delete** the `docs/data` folder
+3. modify the `mkdocs.yml` file to change the `site_name` and `repo_url` to your own
+4. run the following command to generate html and push to github
 
 ```shell
 bash deploy.sh
