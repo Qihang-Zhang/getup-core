@@ -6,11 +6,5 @@ git add .
 git commit -m "$(date +%Y-%m-%d) update"
 git push
 
-#print a smiley
-echo "😊"
-echo "   *****   "
-echo " *       * "
-echo "*  O   O  *"
-echo "*    ∆    *"
-echo " *       * "
-echo "   *****   "
+echo "Congratulations! Have a nice day!"
+
