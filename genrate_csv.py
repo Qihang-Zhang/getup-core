@@ -3,7 +3,7 @@ from datetime import datetime
 import os
 
 # 设置CSV文件路径
-csv_file_path = 'run_times.csv'
+csv_file_path = './docs/data/run_times.csv'
 
 # 获取当前日期和时间
 now = datetime.now()
