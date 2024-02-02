@@ -23,6 +23,8 @@ with open(csv_file_path, mode='r') as file:
         date, time = row
         date_time_obj = datetime.strptime(f"{date} {time}", '%Y-%m-%d %H:%M:%S')
         times.append(date_time_obj)
+        
+times = sorted(times)
 
 # 筛选本月和本年的数据
 current_month = datetime.now().month
@@ -42,16 +44,14 @@ def count_continuous_early_rises_from_yesterday(times, cutoff_hour=8.5):
     返回:
     - 自昨天起连续在特定小时之前开始工作的天数。
     """
-    # 确保times是排序的，以确保能够从最近的一天开始检查
-    sorted_times = sorted(times)
     
     # 初始化计数器和当前检查的日期
     count = 0
     current_date = datetime.now().date()
     last_date = datetime.now().date() + timedelta(days=1)
-    for i in range(len(sorted_times)):
-        idx = len(sorted_times) - i - 1
-        current_time = sorted_times[idx]
+    for i in range(len(times)):
+        idx = len(times) - i - 1
+        current_time = times[idx]
         if current_time.date() == last_date - timedelta(days=1):
             if current_time.hour + current_time.minute / 60 < cutoff_hour:
                 count += 1
@@ -66,7 +66,6 @@ def count_continuous_early_rises_from_yesterday(times, cutoff_hour=8.5):
 # 请在本地环境中根据实际情况定义times列表并调用此函数进行测试
 
 recent_runs_before_cutoff = count_continuous_early_rises_from_yesterday(times)
-print(recent_runs_before_cutoff)
 
 def real_time_to_hours_minutes(real_time):
     """
@@ -211,11 +210,21 @@ html_content = f"""
 <body>
     <center>
     <p>
-        <span style="font-size: 28px; color: black;">Qihang has been an early bird for</span>
-        <span style="font-size: 40px; color: purple;"> {recent_runs_before_cutoff}</span>
-        <span style="font-size: 28px; color: black;"> consecutive days</span>
-        <span style="font-size: 28px; color: blue;"> (before {real_time_to_hours_minutes(args.cutoff)})</span>
+        <span style="font-size: 28px; color: black;">Qihang Got up at</span>
+        <span style="font-size: 40px; color: purple;"> {times[-1].hour}:{times[-1].minute}</span>
+        <span style="font-size: 28px; color: black;"> today</span>
     </p>
+    </center>
+</body>
+<body>
+    <center>
+    <p>
+        <span style="font-size: 28px; color: black;">Qihang has been an early bird for</span>
+        <span style="font-size: 40px; color: purple;">  {recent_runs_before_cutoff}</span>
+        <span style="font-size: 28px; color: black;"> consecutive days</span>
+        <span style="font-size: 28px; color: blue;"> (before  {real_time_to_hours_minutes(args.cutoff)})</span>
+    </p>
+    </center>
 </body>
 <body>
     <center><h2>Wake Up Time Statistics for Last 7 days</h2></center>
