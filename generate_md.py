@@ -241,7 +241,7 @@ html_content = f"""
         <div class="item">
             {monthly_plot_html}
         </div>
-        <div class="item chart-container">
+        <div class="item">
             {monthly_pie_html}
         </div>
     </div>
@@ -252,7 +252,7 @@ html_content = f"""
         <div class="item">
             {yearly_plot_html}
         </div>
-        <div class="item chart-container">
+        <div class="item">
             {yearly_pie_html}
         </div>
     </div>
