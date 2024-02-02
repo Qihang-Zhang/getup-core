@@ -21,6 +21,10 @@ python generate_csv.py --cutoff $a float number
 bash deploy.sh
 ```
 7. set the github page to the `gh-pages` branch
+8. set shortcut in your laptop to run the `deploy.sh` command to update the website: add this in your `.bashrc` or `.zshrc` file 
+```shell
+alias getup="cd $project_position; bash deploy.sh"
+```
 
 ## Frequent Command for MkDocs
 
