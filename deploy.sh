@@ -8,3 +8,9 @@ git push
 
 #print a smiley
 echo "😊"
+echo "   *****   "
+echo " *       * "
+echo "*  O   O  *"
+echo "*    ∆    *"
+echo " *       * "
+echo "   *****   "
