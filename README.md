@@ -5,7 +5,7 @@
  
 2.modify the `mkdocs.yml` file to change the `site_name` and `repo_url` to your own
 
-1. run the following command to generate html and push to github
+3. run the following command to generate html and push to github
 
 ```shell
 bash deploy.sh
