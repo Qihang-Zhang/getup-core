@@ -1,3 +1,4 @@
+This is a project to document the time you get up everyday and visualize it in a website. The project is based on `mkdocs` and `mkdocs-material` package. The website is hosted on github page.
 ## To make the project for your own:
 1. fork the project to your own github account
 2. **delete** the `docs/data` folder
