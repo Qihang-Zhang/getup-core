@@ -32,7 +32,7 @@ alias getup="cd $project_position; bash deploy.sh"
 ```
 Congratulations! now you can open your terminal and type `getup` to document your get-up time!
 ![image](./sample0.png)
-![image](./sample1.png)
+![image](./sample2.png)
 ## Frequent Command for MkDocs
 
 ### to preview website locally:
