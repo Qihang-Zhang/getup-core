@@ -34,6 +34,12 @@ bash deploy.sh
 ```shell
 alias getup="cd $project_position; bash deploy.sh"
 ```
+9. if you want to mannually update the get-up time, you can run the main.py and add this parameter.
+```shell
+python main.py --manual_recording 1 \
+--name $your name \
+--other_parameter_you_want_to_add
+```
 Congratulations! now you can open your terminal and type `getup` to document your get-up time!
 ![image](./sample0.png)
 ![image](./sample2.png)
