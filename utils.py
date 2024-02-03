@@ -123,7 +123,7 @@ def write_md_file(times, recent_runs_before_getup_threshold, args, plot_getup_re
 <body>
     <center>
     <p>
-        <span style="font-size: 28px; color: black;">Qihang Got up at</span>
+        <span style="font-size: 28px; color: black;">{args.name} Got up at</span>
         <span style="font-size: 40px; color: purple;"> {times[-1].hour}:{times[-1].minute}</span>
         <span style="font-size: 28px; color: black;"> today</span>
     </p>
@@ -132,7 +132,7 @@ def write_md_file(times, recent_runs_before_getup_threshold, args, plot_getup_re
 <body>
     <center>
     <p>
-        <span style="font-size: 28px; color: black;">Qihang has been an early bird for</span>
+        <span style="font-size: 28px; color: black;">{args.name} has been an early bird for</span>
         <span style="font-size: 40px; color: purple;">  {recent_runs_before_getup_threshold}</span>
         <span style="font-size: 28px; color: black;"> consecutive days</span>
         <span style="font-size: 28px; color: blue;"> (before  {real_time_to_hours_minutes(args.getup_threshold)})</span>

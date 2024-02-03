@@ -8,6 +8,7 @@ git add .
 git commit -m "$(date +%Y-%m-%d) update"
 git push
 clear
+
 echo "==========================================================================="
 figlet Morning!
 figlet Have a nice day!

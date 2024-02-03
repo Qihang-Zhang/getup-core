@@ -16,21 +16,21 @@ brew install figlet
 # (optional)if you are using linux, you can install figlet by apt:
 sudo apt-get install figlet
 ```
-5. modify the parameter in deploy.sh `cutoff` to what you want, for `generate_md.py`it should be the upper bound of the time you get-up.
+5. modify the parameter in deploy.sh file to your own
 ```shell
-python generate_md.py --cutoff $a float number
+python main.py \
+--cutoff $before when you would never get up but stay up late(float) \
+--getup_threshold $time you should get up(float) \
+--recent_days $how many day you want to show details of get-up \
+--name $your name
 ```
-6. for `generate_csv.py` it should be the lower bound of the time you get-up.
-```shell
-python generate_csv.py --cutoff $a float number
-```
-7. run the following command to generate html and push to github
+6. run the following command to generate html and push to github
 
 ```shell
 bash deploy.sh
 ```
-8. set the github page to the `gh-pages` branch
-9. set shortcut in your laptop to run the `deploy.sh` command to update the website: add this in your `.bashrc` or `.zshrc` file 
+7. set the github page to the `gh-pages` branch
+8. set shortcut in your laptop to run the `deploy.sh` command to update the website: add this in your `.bashrc` or `.zshrc` file 
 ```shell
 alias getup="cd $project_position; bash deploy.sh"
 ```
