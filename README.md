@@ -3,14 +3,18 @@ This is a project to document the time you get up everyday and visualize it in a
 1. fork the project to your own github account
 2. **delete** the `docs/data` folder
 3. modify the `mkdocs.yml` file to change the `site_name` and `repo_url` to your own
-4. install the `mkdocs` and `mkdocs-material` package
+4. install the `mkdocs`, `mkdocs-material` package, and `sl` package
 ```shell
 pip install mkdocs
 pip install mkdocs-material
-# (optional)if you are using mac, you can install the package by brew:
+# (optional)if you are using mac, you can install sl by brew:
 brew install sl
-# (optional)if you are using linux, you can install the package by apt:
+# (optional)if you are using linux, you can install sl by apt:
 sudo apt-get install sl
+# (optional)if you are using mac, you can install figlet by brew:
+brew install figlet
+# (optional)if you are using linux, you can install figlet by apt:
+sudo apt-get install figlet
 ```
 5. modify the parameter in deploy.sh `cutoff` to what you want, for `generate_md.py`it should be the upper bound of the time you get-up.
 ```shell

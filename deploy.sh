@@ -1,5 +1,6 @@
-python generate_csv.py --cutoff 5
-python generate_md.py --cutoff 7.75
+# python generate_csv.py --cutoff 5
+# python generate_md.py --cutoff 7.75
+python main.py
 mkdocs gh-deploy --force
 
 git add .
