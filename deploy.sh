@@ -1,6 +1,7 @@
-# python generate_csv.py --cutoff 5
-# python generate_md.py --cutoff 7.75
-python main.py
+python main.py --cutoff 5 \
+               --getup_threshold 7.75 \
+               --recent_days 30 \
+               --name Qihang
 mkdocs gh-deploy --force
 
 git add .

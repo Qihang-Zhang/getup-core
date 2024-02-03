@@ -118,63 +118,63 @@ def write_md_file(times, recent_runs_before_getup_threshold, args, plot_getup_re
     
     # 假设monthly_pie_html和yearly_pie_html已经由Plotly生成并包含圆饼图的HTML代码
     html_content = f"""
-    <!DOCTYPE html>
-    <html lang="en">
-    <body>
-        <center>
-        <p>
-            <span style="font-size: 28px; color: black;">Qihang Got up at</span>
-            <span style="font-size: 40px; color: purple;"> {times[-1].hour}:{times[-1].minute}</span>
-            <span style="font-size: 28px; color: black;"> today</span>
-        </p>
-        </center>
-    </body>
-    <body>
-        <center>
-        <p>
-            <span style="font-size: 28px; color: black;">Qihang has been an early bird for</span>
-            <span style="font-size: 40px; color: purple;">  {recent_runs_before_getup_threshold}</span>
-            <span style="font-size: 28px; color: black;"> consecutive days</span>
-            <span style="font-size: 28px; color: blue;"> (before  {real_time_to_hours_minutes(args.getup_threshold)})</span>
-        </p>
-        </center>
-    </body>
-    <body>
-        <center><h2>Wake Up Time Statistics for Last 7 days</h2></center>
-        <div class="container">
-            <div class="img">
-                {plot_getup_recent_days}
-            </div>
+<!DOCTYPE html>
+<html lang="en">
+<body>
+    <center>
+    <p>
+        <span style="font-size: 28px; color: black;">Qihang Got up at</span>
+        <span style="font-size: 40px; color: purple;"> {times[-1].hour}:{times[-1].minute}</span>
+        <span style="font-size: 28px; color: black;"> today</span>
+    </p>
+    </center>
+</body>
+<body>
+    <center>
+    <p>
+        <span style="font-size: 28px; color: black;">Qihang has been an early bird for</span>
+        <span style="font-size: 40px; color: purple;">  {recent_runs_before_getup_threshold}</span>
+        <span style="font-size: 28px; color: black;"> consecutive days</span>
+        <span style="font-size: 28px; color: blue;"> (before  {real_time_to_hours_minutes(args.getup_threshold)})</span>
+    </p>
+    </center>
+</body>
+<body>
+    <center><h2>Wake Up Time Statistics for Last 7 days</h2></center>
+    <div class="container">
+        <div class="img">
+            {plot_getup_recent_days}
         </div>
-    </body>
-    <hr>
-    <body>
-        <center><h2>Wake Up Time Statistics for {datetime.now().strftime("%B %Y")}</h2></center>
-        <div class="container">
-            <div class="img">
-                {monthly_plot_html}
-            </div>
-            <div class="img">
-                {monthly_pie_html}
-            </div>
+    </div>
+</body>
+<hr>
+<body>
+    <center><h2>Wake Up Time Statistics for {datetime.now().strftime("%B %Y")}</h2></center>
+    <div class="container">
+        <div class="img">
+            {monthly_plot_html}
         </div>
-    </body>
-    <body>
-        <center><h2>Wake Up Time Statistics for {datetime.now().strftime("%Y")}</h2></center>
-        <div class="container">
-            <div class="img">
-                {yearly_plot_html}
-            </div>
-            <div class="img">
-                {yearly_pie_html}
-            </div>
+        <div class="img">
+            {monthly_pie_html}
         </div>
-    </body>
-    </html>
+    </div>
+</body>
+<body>
+    <center><h2>Wake Up Time Statistics for {datetime.now().strftime("%Y")}</h2></center>
+    <div class="container">
+        <div class="img">
+            {yearly_plot_html}
+        </div>
+        <div class="img">
+            {yearly_pie_html}
+        </div>
+    </div>
+</body>
+</html>
     """
 
     with open('docs/index.md', 'w') as file:
         file.write(html_content)
         
-    print("plot has been generated.")
+    print("HTML file has been generated.")
 
