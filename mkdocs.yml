@@ -1,0 +1,37 @@
+site_name: Get-up Recording
+
+site_url: https://qihang-zhang.github.io/getup/
+repo_url: https://github.com/Qihang-Zhang/getup
+repo_name: Qihang-Zhang/getup
+
+extra:
+  homepage: https://qihang-zhang.github.io/getup/
+
+extra_css:
+  # - stylesheets/extra.css
+  - stylesheets/gothic.css
+
+theme:
+  name: material
+  features:
+    # - navigation.instant
+    # - navigation.instant.prefetch
+    - navigation.tabs
+    - header.autohide
+    - navigation.footer
+  language: en
+  logo: assets/landscape/M1.svg
+  icon:
+    previous: fontawesome/solid/angle-left
+    next: fontawesome/solid/angle-right
+  favicon: assets/landscape/M2.svg
+
+  palette:
+    primary: white
+    accent: light green
+
+nav: 
+  - Recording: 
+    - Today: index.md
+    - Monthly: home/monthly_stats.md
+    - Yearly: home/yearly_stats.md
