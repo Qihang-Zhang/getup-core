@@ -3,7 +3,7 @@ This is a project to document the time you get up everyday and visualize it in a
 1. fork the project to your own github account
 2. **delete** the `docs/data` folder
 3. modify the `mkdocs.yml` file to change the `site_name` and `repo_url` to your own
-4. install the `mkdocs`, `mkdocs-material` package, and `sl` package(if you haven't install python3, please install python3 first: [python3](https://www.python.org/downloads/) or [anaconda](https://www.anaconda.com/products/distribution), [miniconda](https://docs.conda.io/en/latest/miniconda.html))
+4. install the `mkdocs`, `mkdocs-material` package, and `sl` package(if you haven't install python3, please install python3 first: [python3](https://www.python.org/downloads/), [anaconda](https://www.anaconda.com/products/distribution) or [miniconda](https://docs.conda.io/en/latest/miniconda.html))
 ```shell
 pip install mkdocs
 pip install mkdocs-material
