@@ -39,7 +39,7 @@ Congratulations! now you can open your terminal and type `getup` to document you
 ![image](./docs/assets/pic/terminal-sl.png)
 ![image](./docs/assets/pic/terminal-morning.png)
 ![image](./docs/assets/pic/github-page-preview.png)
-1. if you want to mannually update the get-up time, you can run the main.py and add this parameter.
+9. if you want to mannually update the get-up time, you can run the main.py and add this parameter.
 ```shell
 python main.py --manual_recording 1 \
 --name $your name \
