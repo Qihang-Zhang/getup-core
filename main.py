@@ -9,7 +9,7 @@ import argparse
 # 创建参数解析器
 argparser = argparse.ArgumentParser()
 argparser.add_argument('--cutoff', type=float, default=5, help='The cutoff hour for counting runs in the last 7 days')
-argparser.add_argument('--getup_threshold', type=float, default=8.5, help='The cutoff hour for counting runs in the last 7 days')
+argparser.add_argument('--getup_threshold', type=float, default=7.75, help='The cutoff hour for counting runs in the last 7 days')
 argparser.add_argument('--data', type=str, default='./docs/data/run_times.csv', help='The path to the data file')
 argparser.add_argument('--recent_days', type=int, default=30, help='The number of recent days to plot')
 argparser.add_argument('--name', type=str, default='Qihang', help='Your name')
