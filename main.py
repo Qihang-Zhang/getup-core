@@ -60,8 +60,8 @@ times_this_year = [time for time in times if time.year == current_year]
 times_recent_days = [time for time in times if time > datetime.now() - timedelta(days=args.recent_days)]
 
 recent_runs_before_getup_threshold = max(
-                            count_continuous_early_rises_from_yesterday(times),
-                            count_continuous_early_rises_from_yesterday(times, last_date=datetime.now().date())
+                            count_continuous_early_rises_from_yesterday(times, getup_threshold=args.getup_threshold),
+                            count_continuous_early_rises_from_yesterday(times, last_date=datetime.now().date(), getup_threshold=args.getup_threshold)
                             )
 plot_getup_recent_days = plot_times_with_getup_threshold_and_line(times_recent_days, args.getup_threshold)
 
