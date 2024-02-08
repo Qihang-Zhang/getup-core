@@ -31,4 +31,7 @@ theme:
     accent: light green
 
 nav: 
-  - Recording: index.md
+  - Recording: 
+    - Today: index.md
+    - Monthly: home/monthly_stats.md
+    - Yearly: home/yearly_stats.md

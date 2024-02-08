@@ -74,4 +74,7 @@ yearly_plot_html = generate_histogram_plotly_html(times_this_year, "Yearly Wake 
 monthly_pie_html = generate_pie_chart_html(times_this_month, "Monthly Wake Up Time Pie Chart")
 yearly_pie_html = generate_pie_chart_html(times_this_year, "Yearly Wake Up Time Pie Chart")
 
-write_md_file(times, recent_runs_before_getup_threshold, args, plot_getup_recent_days, monthly_plot_html, yearly_plot_html, monthly_pie_html, yearly_pie_html)
+write_md_file_today(times, recent_runs_before_getup_threshold, args, plot_getup_recent_days)
+write_md_file_monthly(monthly_plot_html, monthly_pie_html)
+write_md_file_yearly(yearly_plot_html, yearly_pie_html)
+print("Markdown files have been written.")

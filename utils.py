@@ -114,7 +114,7 @@ def generate_pie_chart_html(times, title):
     fig.update_layout(title_text=title)
     return fig.to_html(full_html=False, include_plotlyjs='cdn')
 
-def write_md_file(times, recent_runs_before_getup_threshold, args, plot_getup_recent_days, monthly_plot_html, yearly_plot_html, monthly_pie_html, yearly_pie_html):
+def write_md_file_today(times, recent_runs_before_getup_threshold, args, plot_getup_recent_days):
     
     # 假设monthly_pie_html和yearly_pie_html已经由Plotly生成并包含圆饼图的HTML代码
     html_content = f"""
@@ -140,14 +140,26 @@ def write_md_file(times, recent_runs_before_getup_threshold, args, plot_getup_re
     </center>
 </body>
 <body>
-    <center><h2>Wake Up Time Statistics for Last 7 days</h2></center>
+    <center><h2>Wake Up Time Statistics for Last {args.recent_days} days</h2></center>
     <div class="container">
         <div class="img">
             {plot_getup_recent_days}
         </div>
     </div>
 </body>
-<hr>
+</html>
+    """
+
+    with open('docs/index.md', 'w') as file:
+        file.write(html_content)
+    
+    
+def write_md_file_monthly(monthly_plot_html, monthly_pie_html):
+    
+    # 假设monthly_pie_html和yearly_pie_html已经由Plotly生成并包含圆饼图的HTML代码
+    html_content = f"""
+<!DOCTYPE html>
+<html lang="en">
 <body>
     <center><h2>Wake Up Time Statistics for {datetime.now().strftime("%B %Y")}</h2></center>
     <div class="container">
@@ -159,6 +171,18 @@ def write_md_file(times, recent_runs_before_getup_threshold, args, plot_getup_re
         </div>
     </div>
 </body>
+</html>
+    """
+
+    with open('docs/home/monthly_stats.md', 'w') as file:
+        file.write(html_content)
+    
+def write_md_file_yearly(yearly_plot_html, yearly_pie_html):
+    
+    # 假设monthly_pie_html和yearly_pie_html已经由Plotly生成并包含圆饼图的HTML代码
+    html_content = f"""
+<!DOCTYPE html>
+<html lang="en">
 <body>
     <center><h2>Wake Up Time Statistics for {datetime.now().strftime("%Y")}</h2></center>
     <div class="container">
@@ -173,8 +197,9 @@ def write_md_file(times, recent_runs_before_getup_threshold, args, plot_getup_re
 </html>
     """
 
-    with open('docs/index.md', 'w') as file:
+    with open('docs/home/yearly_stats.md', 'w') as file:
         file.write(html_content)
-        
-    print("HTML file has been generated.")
+    
+    
+
 
