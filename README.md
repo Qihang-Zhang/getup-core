@@ -42,7 +42,7 @@ Congratulations! now you can open your terminal and type `getup` to document you
 9. if you want to mannually update the get-up time, you can run the main.py and add this parameter.
 ```shell
 python main.py --manual_recording 1 \
---name $your name \
+--name $yourname \
 --other_parameter_you_want_to_add
 ```
 ## Frequent Command for MkDocs
