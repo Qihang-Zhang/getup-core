@@ -124,7 +124,7 @@ def write_md_file_today(times, recent_runs_before_getup_threshold, args, plot_ge
     <center>
     <p>
         <span style="font-size: 28px; color: black;">{args.name} Got up at</span>
-        <span style="font-size: 40px; color: purple;"> {times[-1].hour}:{times[-1].minute}</span>
+        <span style="font-size: 40px; color: purple;"> {times[-1].hour}:{times[-1].minute}:{times[-1].second}</span>
         <span style="font-size: 28px; color: black;"> today</span>
     </p>
     </center>
