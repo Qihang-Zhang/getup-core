@@ -6,7 +6,6 @@ import sys
 from utils import *
 import argparse
 
-# 创建参数解析器
 argparser = argparse.ArgumentParser()
 argparser.add_argument('--cutoff', type=float, default=5, help='The cutoff hour for counting runs in the last 7 days')
 argparser.add_argument('--getup_threshold', type=float, default=7.75, help='The cutoff hour for counting runs in the last 7 days')
@@ -16,7 +15,6 @@ argparser.add_argument('--name', type=str, default='Qihang', help='Your name')
 argparser.add_argument('--manual_recording', type=bool, default=False, help='Whether to manually record the data')
 args = argparser.parse_args()
 
-# makedirs(data) 方法用于递归创建目录
 os.makedirs('./docs/data', exist_ok=True)
 
 now = datetime.now()
@@ -67,7 +65,6 @@ recent_runs_before_getup_threshold = max(
                             )
 plot_getup_recent_days = plot_times_with_getup_threshold_and_line(times_recent_days, args.getup_threshold)
 
-# 生成本月和本年的直方图
 monthly_plot_html = generate_histogram_plotly_html(times_this_month, "Monthly Wake Up Time Distribution")
 yearly_plot_html = generate_histogram_plotly_html(times_this_year, "Yearly Wake Up Time Distribution")
 
