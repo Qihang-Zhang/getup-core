@@ -3,7 +3,7 @@ This is a project to document the time you get up everyday and visualize it in a
 1. fork the project to your own github account
 2. **delete** the `docs/data` folder
 3. modify the `mkdocs.yml` file to change the `site_name` and `repo_url` to your own
-4. install the `mkdocs`, `mkdocs-material` package, and `sl` package
+4. install the `mkdocs`, `mkdocs-material` package, and `sl` package(if you haven't install python3, please install python3 first: ![python3](https://www.python.org/downloads/) or ![anaconda](https://www.anaconda.com/products/distribution), ![miniconda](https://docs.conda.io/en/latest/miniconda.html))
 ```shell
 pip install mkdocs
 pip install mkdocs-material
@@ -16,7 +16,7 @@ brew install figlet
 # (optional)if you are using linux, you can install figlet by apt:
 sudo apt-get install figlet
 ```
-5. modify the parameter in deploy.sh file to your own
+1. modify the parameter in deploy.sh file to your own
 ```shell
 python main.py \
 --cutoff $before when you would never get up but stay up late(float) \
@@ -24,7 +24,7 @@ python main.py \
 --recent_days $how many day you want to show details of get-up \
 --name $your name
 ```
-6. run the following command to generate html and push to github
+1. run the following command to generate html and push to github
 
 ```shell
 bash deploy.sh
