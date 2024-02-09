@@ -53,10 +53,7 @@ monthly_pie_html = generate_pie_chart_html(times_this_month, "Monthly Wake Up Ti
     
 yearly_pie_html = generate_pie_chart_html(times_this_year, "Yearly Wake Up Time Pie Chart")
 
-emoji, character, days, before_or_after = conditional_emoji(recent_runs_before_getup_threshold, recent_runs_after_getup_threshold)
-data_today = f"{times[-1].hour}:{times[-1].minute}:{times[-1].second}"
-
-write_md_file_today(data_today, emoji, character, days, before_or_after, args, plot_getup_recent_days)
+write_md_file_today(times, recent_runs_before_getup_threshold, recent_runs_after_getup_threshold, args, plot_getup_recent_days)
 write_md_file_monthly(monthly_plot_html, monthly_pie_html)
 write_md_file_yearly(yearly_plot_html, yearly_pie_html)
 print("Markdown files have been written.")

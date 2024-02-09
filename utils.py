@@ -117,10 +117,7 @@ def generate_pie_chart_html(times, title):
     return fig.to_html(full_html=False, include_plotlyjs='cdn')
 
 def conditional_emoji(recent_runs_before_getup_threshold, recent_runs_after_getup_threshold):
-    emoji = "😐"
-    Character = "normal person"
-    days = 0
-    before_or_after = ""
+
     if recent_runs_before_getup_threshold > 0 and recent_runs_after_getup_threshold == 0:
         emoji = "😆"
         Character = "early bird 🐤"
@@ -131,10 +128,32 @@ def conditional_emoji(recent_runs_before_getup_threshold, recent_runs_after_getu
         Character = "lazybones 🦉"
         days = recent_runs_after_getup_threshold
         before_or_after = "after"
+    else:
+        emoji = "😆"
+        Character = "early bird 🐤"
+        days = recent_runs_before_getup_threshold
+        before_or_after = "before"
         
     return emoji, Character, days, before_or_after
 
-def write_md_file_today(data_today, emoji, character, days, before_or_after, args, plot_getup_recent_days):
+def write_md_file_today(times, recent_runs_before_getup_threshold, recent_runs_after_getup_threshold, args, plot_getup_recent_days):
+    if recent_runs_before_getup_threshold > 0 and recent_runs_after_getup_threshold == 0:
+        emoji = "😆"
+        character = "early bird 🐤"
+        days = recent_runs_before_getup_threshold
+        before_or_after = "before"
+    elif recent_runs_before_getup_threshold == 0 and recent_runs_after_getup_threshold > 0:
+        emoji = "😡"
+        character = "lazybones 🦉"
+        days = recent_runs_after_getup_threshold
+        before_or_after = "after"
+    else:
+        emoji = "😆"
+        character = "early bird 🐤"
+        days = recent_runs_before_getup_threshold
+        before_or_after = "before"
+        
+    data_today = f"{times[-1].hour}:{times[-1].minute}:{times[-1].second}"
     # 假设monthly_pie_html和yearly_pie_html已经由Plotly生成并包含圆饼图的HTML代码
     html_content = f"""
 <!DOCTYPE html>
