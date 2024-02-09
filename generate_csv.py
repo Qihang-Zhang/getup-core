@@ -19,6 +19,17 @@ now = datetime.now()
 current_date = now.date()
 current_time = now.strftime('%H:%M:%S')
 
+def is_recorded(current_date, data):
+    # 读取CSV文件，检查今天的日期是否已经记录
+    already_recorded = False
+    with open(data, mode='r') as file:
+        reader = csv.reader(file)
+        for row in reader:
+            if len(row) > 0 and row[0] == str(current_date):
+                already_recorded = True
+                break
+    return already_recorded
+
 if not os.path.exists(args.data):
     with open(args.data, mode='w', newline='') as file:
         writer = csv.writer(file)
