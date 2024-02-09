@@ -1,12 +1,5 @@
-python main.py --cutoff 5 \
-               --getup_threshold 7.75 \
-               --recent_days 30 \
-               --name Qihang
-mkdocs gh-deploy --force
-
-git add .
-git commit -m "$(date +%Y-%m-%d) update"
-git push
+bash scripts/generate_csv.sh
+bash scripts/generate_website.sh
 
 # below is to print some interesting message, feel free to delete or modify it
 clear

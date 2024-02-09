@@ -2,7 +2,6 @@ import csv
 from datetime import datetime
 import os
 import argparse
-import sys
 from utils import *
 import argparse
 import pdb
@@ -14,7 +13,6 @@ argparser.add_argument('--data_dir', type=str, default='./data', help='The path 
 argparser.add_argument('--data', type=str, default='./data/run_times.csv', help='The path to the data file')
 argparser.add_argument('--recent_days', type=int, default=30, help='The number of recent days to plot')
 argparser.add_argument('--name', type=str, default='Qihang', help='Your name')
-argparser.add_argument('--manual_recording', type=bool, default=False, help='Whether to manually record the data')
 args = argparser.parse_args()
 
 os.makedirs(args.data_dir, exist_ok=True)
@@ -22,28 +20,6 @@ os.makedirs(args.data_dir, exist_ok=True)
 now = datetime.now()
 current_date = now.date()
 current_time = now.strftime('%H:%M:%S')
-
-if not os.path.exists(args.data):
-    with open(args.data, mode='w', newline='') as file:
-        writer = csv.writer(file)
-        writer.writerow(['Date', 'First Run Time'])
-    print("file has been created.")
-        
-if now.hour + now.minute / 60 < args.cutoff:
-    print("You stayed up too late last night!")
-    sys.exit()
-else:
-    if args.manual_recording:
-        print("manual recording is enabled. Please enter the data manually in the CSV file before running the program")
-    else:
-        if not is_recorded(current_date, args.data):
-            with open(args.data, mode='a', newline='') as file:
-                writer = csv.writer(file)
-                writer.writerow([current_date, current_time])
-                print("data has been recorded.")
-        else:
-            print("You have already recorded today's data.")
-            sys.exit()
     
 times = []
 with open(args.data, mode='r') as file:
@@ -79,6 +55,9 @@ yearly_pie_html = generate_pie_chart_html(times_this_year, "Yearly Wake Up Time 
 
 emoji, character, days, before_or_after = conditional_emoji(recent_runs_before_getup_threshold, recent_runs_after_getup_threshold)
 data_today = f"{times[-1].hour}:{times[-1].minute}:{times[-1].second}"
+
+with open(args.data, mode='r') as file:
+    pass
 
 write_md_file_today(data_today, emoji, character, days, before_or_after, args, plot_getup_recent_days)
 write_md_file_monthly(monthly_plot_html, monthly_pie_html)
