@@ -4,17 +4,6 @@ from datetime import datetime, timedelta
 from collections import Counter
 import plotly.graph_objects as go
 
-def is_recorded(current_date, data):
-    # 读取CSV文件，检查今天的日期是否已经记录
-    already_recorded = False
-    with open(data, mode='r') as file:
-        reader = csv.reader(file)
-        for row in reader:
-            if len(row) > 0 and row[0] == str(current_date):
-                already_recorded = True
-                break
-    return already_recorded
-
 def count_continuous_early_rises_from_yesterday(times, last_date, getup_threshold):  
     # 初始化计数器和当前检查的日期
     count = 0
