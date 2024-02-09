@@ -23,7 +23,7 @@ jobs:
         pip install -r requirements.txt # 假设所有Python依赖都在requirements.txt文件中
 
     - name: Make script executable
-      run: chmod +x ./run_script.sh
+      run: chmod +x ./scripts/deploy.sh
 
     - name: Run the script
       run: bash ./scripts/deploy.sh
