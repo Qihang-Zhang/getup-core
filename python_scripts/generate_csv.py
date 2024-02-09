@@ -3,7 +3,7 @@ from datetime import datetime
 import os
 import argparse
 import sys
-from python_scripts.utils import *
+from utils import *
 import argparse
 import pdb
 
