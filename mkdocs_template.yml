@@ -1,11 +1,7 @@
-site_name: Get-up Recording
-
-site_url: https://qihang-zhang.github.io/getup/
 repo_url: https://github.com/Qihang-Zhang/getup
 repo_name: Qihang-Zhang/getup
+site_name: Get-up Recording
 
-extra:
-  homepage: https://qihang-zhang.github.io/getup/
 
 extra_css:
   # - stylesheets/extra.css

@@ -171,11 +171,11 @@ def write_md_file_today(times, recent_runs_before_getup_threshold, recent_runs_a
     <center>
     <p>
         <span style="font-size: 28px; color: black;">{args.name} has been an</span>
-        <span style="font-size: 32px; color: black;"> {character}</span>
+        <span style="font-size: 32px; color: black;">  {character}</span>
         <span style="font-size: 28px; color: black;"> for</span>
-        <span style="font-size: 40px; color: purple;">  {days}</span>
-        <span style="font-size: 28px; color: black;"> consecutive days {emoji}</span>
-        <span style="font-size: 28px; color: blue;"> ({before_or_after} {real_time_to_hours_minutes(args.getup_threshold)})</span>
+        <span style="font-size: 40px; color: purple;">   {days}</span>
+        <span style="font-size: 28px; color: black;"> consecutive days  {emoji}</span>
+        <span style="font-size: 28px; color: blue;"> (  {before_or_after}  {real_time_to_hours_minutes(args.getup_threshold)})</span>
     </p>
     </center>
 </body>
