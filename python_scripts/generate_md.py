@@ -2,7 +2,7 @@ import csv
 from datetime import datetime
 import os
 import argparse
-from utils import *
+from python_scripts.utils import *
 import argparse
 import pdb
 
