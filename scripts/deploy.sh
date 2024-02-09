@@ -4,7 +4,3 @@ python generate_md.py --cutoff 5 \
                       --name Qihang
                       
 mkdocs gh-deploy --force
-
-# git add .
-# git commit -m "$(date +%Y-%m-%d) update"
-# git push
