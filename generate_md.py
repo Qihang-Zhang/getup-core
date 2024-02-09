@@ -56,9 +56,6 @@ yearly_pie_html = generate_pie_chart_html(times_this_year, "Yearly Wake Up Time 
 emoji, character, days, before_or_after = conditional_emoji(recent_runs_before_getup_threshold, recent_runs_after_getup_threshold)
 data_today = f"{times[-1].hour}:{times[-1].minute}:{times[-1].second}"
 
-with open(args.data, mode='r') as file:
-    pass
-
 write_md_file_today(data_today, emoji, character, days, before_or_after, args, plot_getup_recent_days)
 write_md_file_monthly(monthly_plot_html, monthly_pie_html)
 write_md_file_yearly(yearly_plot_html, yearly_pie_html)
