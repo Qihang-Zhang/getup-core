@@ -2,11 +2,7 @@
 import csv
 from datetime import datetime, timedelta
 from collections import Counter
-import matplotlib.pyplot as plt
 import plotly.graph_objects as go
-import seaborn as sns
-import os
-import argparse
 
 def is_recorded(current_date, data):
     # 读取CSV文件，检查今天的日期是否已经记录

@@ -1,0 +1,29 @@
+name: Run Local Script
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  run-script:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11.5' # 根据需要更改 Python 版本
+
+    - name: Install dependencies
+      run: |
+        pip install -r requirements.txt # 假设所有Python依赖都在requirements.txt文件中
+
+    - name: Make script executable
+      run: chmod +x ./run_script.sh
+
+    - name: Run the script
+      run: bash ./scripts/deploy.sh
