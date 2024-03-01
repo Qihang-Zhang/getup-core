@@ -3,6 +3,7 @@ import csv
 from datetime import datetime, timedelta
 from collections import Counter
 import plotly.graph_objects as go
+from numpy import *
 
 def count_continuous_early_rises_from_yesterday(times, last_date, getup_threshold):  
     # 初始化计数器和当前检查的日期
@@ -60,6 +61,10 @@ def plot_times_with_getup_threshold_and_line(times, getup_threshold):
     # Add a horizontal line representing the getup threshold
     fig.add_hline(y=getup_threshold, line=dict(color='green', width=2, dash='dash'),
                   annotation_text=f"Get-up threshold Hour: {getup_threshold}", annotation_position="bottom right")
+    
+    # Add a horizontal line representing the Average getup time
+    fig.add_hline(y=mean(y_data), line=dict(color='blue', width=2, dash='dash'),
+                  annotation_text=f"Average Get-up Time: {mean(y_data)}", annotation_position="bottom right")
 
     # Dynamically adjust y-axis to show the full range of hours in the data or from 0 to 24
     min_hour = min(y_data) if min(y_data) < getup_threshold else getup_threshold
