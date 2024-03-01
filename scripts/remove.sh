@@ -1,3 +1,4 @@
+rm -rf site
 rm -rf docs
 rm -rf python_scripts
 rm -rf requirements.txt
