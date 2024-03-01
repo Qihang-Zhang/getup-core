@@ -59,11 +59,11 @@ def plot_times_with_getup_threshold_and_line(times, getup_threshold):
                              line=dict(color='grey', width=2)))
 
     # Add a horizontal line representing the getup threshold
-    fig.add_hline(y=getup_threshold, line=dict(color='green', width=2, dash='dash'),
+    fig.add_hline(y=getup_threshold, line=dict(color='blue', width=2, dash='dash'),
                   annotation_text=f"Get-up threshold Hour: {getup_threshold}", annotation_position="bottom right")
     
     # Add a horizontal line representing the Average getup time
-    fig.add_hline(y=mean(y_data), line=dict(color='blue', width=2, dash='dash'),
+    fig.add_hline(y=mean(y_data), line=dict(color='green', width=2, dash='dash'),
                   annotation_text=f"Average Get-up Time: {mean(y_data)}", annotation_position="bottom right")
 
     # Dynamically adjust y-axis to show the full range of hours in the data or from 0 to 24
