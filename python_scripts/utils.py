@@ -43,27 +43,32 @@ def real_time_to_hours_minutes(real_time):
     return f"{hours}:{minutes}"
 
 def plot_times_with_getup_threshold_and_line(times, getup_threshold):
-    times_sorted = sorted(times, key=lambda x: x)  # 按时间排序
+    times_sorted = sorted(times, key=lambda x: x)  # Sort by time
     x_data = [time.strftime("%Y-%m-%d %H:%M:%S") for time in times_sorted]
     y_data = [time.hour + time.minute / 60 for time in times_sorted]
 
-    colors = ['red' if y > getup_threshold else 'blue' for y in y_data]  # 晚于getup_threshold为红色，否则为蓝色
+    # Determine colors based on getup_threshold: red if later, blue otherwise
+    colors = ['red' if y > getup_threshold else 'blue' for y in y_data]
 
     fig = go.Figure()
 
-    # 使用折线连接所有点，通过颜色区分晚于和早于getup threshold的点
+    # Connect all points with lines, differentiate by color based on the getup threshold
     fig.add_trace(go.Scatter(x=x_data, y=y_data, mode='lines+markers',
                              marker=dict(size=10, color=colors, line=dict(width=2)),
                              line=dict(color='grey', width=2)))
 
-    # 添加表示getup threshold的水平线
+    # Add a horizontal line representing the getup threshold
     fig.add_hline(y=getup_threshold, line=dict(color='green', width=2, dash='dash'),
                   annotation_text=f"Get-up threshold Hour: {getup_threshold}", annotation_position="bottom right")
 
+    # Dynamically adjust y-axis to show the full range of hours in the data or from 0 to 24
+    min_hour = min(y_data) if min(y_data) < getup_threshold else getup_threshold
+    max_hour = max(y_data) if max(y_data) > getup_threshold else getup_threshold
+    y_axis_padding = 1  # Add padding to the y-axis range for better visualization
     fig.update_layout(title='',
                       xaxis_title='Date and Time',
                       yaxis_title='Hour of Day',
-                      yaxis=dict(range=[24, 0]))
+                      yaxis=dict(range=[max(24, max_hour + y_axis_padding), min(0, min_hour - y_axis_padding)]))
 
     return fig.to_html(full_html=False, include_plotlyjs='cdn')
 
