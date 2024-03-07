@@ -12,7 +12,7 @@ def count_continuous_early_rises_from_yesterday(times, last_date, getup_threshol
         idx = len(times) - i - 1
         current_time = times[idx]
         if current_time.date() == last_date - timedelta(days=1):
-            if current_time.hour + current_time.minute / 60 < getup_threshold:
+            if current_time.hour + current_time.minute / 60 <= getup_threshold:
                 count += 1
                 last_date = current_time.date()
         else:
