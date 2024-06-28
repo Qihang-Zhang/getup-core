@@ -73,8 +73,8 @@ def plot_times_with_getup_threshold_and_line(times, getup_threshold):
     fig.update_layout(title='',
                       xaxis_title='Date and Time',
                       yaxis_title='Hour of Day',
-                      yaxis=dict(range=[max(min(24, max_hour + y_axis_padding), getup_threshold + y_axis_padding), 
-                                        min(max(0, min_hour - y_axis_padding), getup_threshold - y_axis_padding)]))
+                      yaxis=dict(range=[max(min(24.0, max_hour + y_axis_padding), getup_threshold + y_axis_padding), 
+                                        min(max(0.0, min_hour - y_axis_padding), getup_threshold - y_axis_padding)]))
 
     return fig.to_html(full_html=False, include_plotlyjs='cdn')
 
