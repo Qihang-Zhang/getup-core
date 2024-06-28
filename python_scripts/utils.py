@@ -70,11 +70,14 @@ def plot_times_with_getup_threshold_and_line(times, getup_threshold):
     min_hour = min(y_data) if min(y_data) < getup_threshold else getup_threshold
     max_hour = max(y_data) if max(y_data) > getup_threshold else getup_threshold
     y_axis_padding = 0.5  # Add padding to the y-axis range for better visualization
+    lower = 0.0 if (min_hour < y_axis_padding) else min_hour - y_axis_padding
+    higher = 24.0 if (max_hour + y_axis_padding > 24) else max_hour + y_axis_padding
+    new_higher = higher if higher > getup_threshold else getup_threshold + y_axis_padding
+    new_lower = lower if lower < getup_threshold else getup_threshold - y_axis_padding
     fig.update_layout(title='',
                       xaxis_title='Date and Time',
                       yaxis_title='Hour of Day',
-                      yaxis=dict(range=[max(min(24.0, max_hour + y_axis_padding), getup_threshold + y_axis_padding), 
-                                        min(max(0.0, min_hour - y_axis_padding), getup_threshold - y_axis_padding)]))
+                      yaxis=dict(range=[new_higher, new_lower]))
 
     return fig.to_html(full_html=False, include_plotlyjs='cdn')
 
